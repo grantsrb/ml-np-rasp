@@ -36,8 +36,9 @@ def sel_width(A):
 def aggr_mean(A, v, default=0):
     out = np.dot(A, v)
     norm = sel_width(A)
-    out = np.divide(out, norm, out=np.full_like(v, default,dtype=float), where=(norm != 0))
-    return out.astype(int)
+    out = np.divide(
+        out, norm, out=np.full_like(v, default,dtype=float), where=(norm != 0))
+    return out #.astype(int)
 
 def aggr_max(A, v, default=0):
     out = np.full_like(v, default)
